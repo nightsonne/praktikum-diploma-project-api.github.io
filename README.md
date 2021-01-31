@@ -7,7 +7,7 @@ API развернут на облачном сервисе cloud.yandex.ru
 
 Публичный IP-адрес сервера: 84.201.156.246.
 
-Доменные имена https://nightsonne.students.nomoreparties.xyz и https://www.nightsonne.students.nomoreparties.xyz доступны по протоколам http и https
+Доменные имена https://nightsonne-newsapi.students.nomoreparties.xyz и https://www.nightsonne-newsapi.students.nomoreparties.xyz доступны по протоколам http и https
 
 Запросы, которые обрабатывает сервер:
 
