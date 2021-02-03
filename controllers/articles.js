@@ -1,6 +1,7 @@
 const Article = require('../models/article');
 const NotFound = require('../errors/notfound');
 const Forbidden = require('../errors/forbidden');
+const BadRequest = require('../errors/badrequest');
 
 module.exports.findArticle = (req, res, next) => {
   Article.find({ owner: req.user._id })
@@ -48,5 +49,5 @@ module.exports.createArticle = (req, res, next) => {
     owner: req.user._id,
   })
     .then((article) => res.status(200).send({ data: article }))
-    .catch(next);
+    .catch((e) => next(new BadRequest(e.message)));
 };

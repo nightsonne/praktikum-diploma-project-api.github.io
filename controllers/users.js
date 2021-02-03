@@ -4,6 +4,7 @@ const User = require('../models/user');
 const NotFound = require('../errors/notfound');
 const DoubleErr = require('../errors/double');
 const BadRequest = require('../errors/badrequest');
+const Unauthorized = require('../errors/unauthorized');
 
 const { NODE_ENV, JWT_SECRET } = process.env;
 
@@ -55,5 +56,5 @@ module.exports.login = (req, res, next) => {
       const token = jwt.sign({ _id: user._id }, NODE_ENV === 'production' ? JWT_SECRET : 'secret-for-dev', { expiresIn: '7d' });
       res.send({ token });
     })
-    .catch(next);
+    .catch((e) => next(new Unauthorized(e.message)));
 };
