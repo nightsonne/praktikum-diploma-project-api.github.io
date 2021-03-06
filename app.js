@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const helmet = require('helmet');
 const { errors } = require('celebrate');
+const cors = require('cors');
 
 const { requestLogger, errorLogger } = require('./middlewares/loggers');
 const { mongoLink, mongoConfig } = require('./config/mongo');
@@ -15,6 +16,7 @@ const app = express();
 
 mongoose.connect(mongoLink, mongoConfig);
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
